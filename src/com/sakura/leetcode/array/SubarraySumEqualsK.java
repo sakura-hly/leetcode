@@ -1,4 +1,4 @@
-package com.sakura.array;
+package com.sakura.leetcode.array;
 
 public class SubarraySumEqualsK {
     public int subarraySum(int[] nums, int k) {

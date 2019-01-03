@@ -1,4 +1,4 @@
-package com.sakura.array;
+package com.sakura.leetcode.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.sakura.array;
+package com.sakura.leetcode.array;
 
 public class MaximumLengthofRepeatedSubarray {
     public int findLength(int[] A, int[] B) {

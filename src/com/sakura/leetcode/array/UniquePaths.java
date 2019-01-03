@@ -1,4 +1,4 @@
-package com.sakura.array;
+package com.sakura.leetcode.array;
 
 public class UniquePaths {
     public int uniquePaths(int m, int n) {

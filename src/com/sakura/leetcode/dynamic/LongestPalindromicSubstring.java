@@ -1,4 +1,4 @@
-package com.sakura.dynamic;
+package com.sakura.leetcode.dynamic;
 
 /*
 Input: "babad"

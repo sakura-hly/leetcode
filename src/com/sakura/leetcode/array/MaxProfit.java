@@ -1,4 +1,4 @@
-package com.sakura.array;
+package com.sakura.leetcode.array;
 
 public class MaxProfit {
     public int maxProfit(int[] prices, int fee) {

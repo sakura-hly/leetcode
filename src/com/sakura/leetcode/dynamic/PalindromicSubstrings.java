@@ -1,4 +1,4 @@
-package com.sakura.dynamic;
+package com.sakura.leetcode.dynamic;
 
 public class PalindromicSubstrings {
     public int countSubstrings(String s) {
