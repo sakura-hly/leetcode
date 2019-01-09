@@ -46,12 +46,12 @@ public class MajorityElement {
 
         if (count1 > nums.length / 3)
             result.add(number1);
-        if (count2 > nums.length / 3)
+        if (count2 > nums.length / 3 && number2 != number1)
             result.add(number2);
         return result;
     }
 
     public static void main(String[] args) {
-        System.out.println(new MajorityElement().majorityElement(new int[]{1, 1, 1, 3, 3, 2, 2, 2}));
+        System.out.println(new MajorityElement().majorityElement(new int[]{1}));
     }
 }
