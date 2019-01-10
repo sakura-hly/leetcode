@@ -6,10 +6,11 @@ import java.util.List;
 public class SpiralMatrix {
 
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> result = new ArrayList<>(matrix.length * matrix[0].length);
         if (matrix == null || matrix.length == 0) {
-            return result;
+            return new ArrayList<>(0);
         }
+        List<Integer> result = new ArrayList<>(matrix.length * matrix[0].length);
+
         int beginRow = 0, endRow = matrix.length - 1, beginCol = 0, endCol = matrix[0].length - 1;
         while (beginRow <= endRow && beginCol <= endCol) {
             for (int j = beginCol; j <= endCol; j++) {
