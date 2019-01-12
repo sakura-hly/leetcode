@@ -20,7 +20,7 @@ public class TopKFrequentElements {
 
         List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
 
-        Collections.sort(list, (o1, o2) -> o2.getValue()-o1.getValue());
+        Collections.sort(list, (o1, o2) -> o2.getValue() - o1.getValue());
 
         List<Integer> result = new ArrayList<>(k);
         for (Map.Entry<Integer, Integer> entry : list) {
