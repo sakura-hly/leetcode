@@ -23,7 +23,7 @@ public class RestoreIPAddresses {
             result.add(String.join(".", temp));
         } else {
             StringBuilder sb = new StringBuilder();
-            for (int i = start; i < s.length(); i++) {
+            for (int i = start; i < start + 4 && i < s.length(); i++) {
                 sb.append(s.charAt(i));
                 if ((sb.length() > 1 && sb.charAt(0) == '0') || (Integer.valueOf(sb.toString()) > 255)) {
                     break;
