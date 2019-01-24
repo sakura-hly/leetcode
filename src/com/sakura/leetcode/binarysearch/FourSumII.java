@@ -1,4 +1,4 @@
-package com.sakura.leetcode;
+package com.sakura.leetcode.binarysearch;
 
 import java.util.HashMap;
 import java.util.Map;
