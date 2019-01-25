@@ -11,7 +11,7 @@ public class SearchInRotated {
             int m = (r - l) / 2 + l;
             if (nums[m] == target) return m;
 
-            if (nums[l] <= nums[m]) {
+            if (nums[l] <= nums[m]) { // nums[l..m] is sorted
                 if (target < nums[m] && target >= nums[l]) {
                     r = m - 1;
                 } else {
