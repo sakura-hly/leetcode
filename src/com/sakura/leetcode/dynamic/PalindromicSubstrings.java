@@ -15,6 +15,7 @@ public class PalindromicSubstrings {
     }
 
     private int getResult(String s, int result, int i, int j) {
+        // 从i, j开始向两边扩散
         while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
             result++;
             i--;
