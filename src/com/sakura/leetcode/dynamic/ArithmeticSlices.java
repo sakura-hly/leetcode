@@ -42,9 +42,23 @@ public class ArithmeticSlices {
     }
 
     private boolean IsArithmetic(int a, int b, int c) {
-        return b << 1 == a + c ? true : false;
+        return b << 1 == a + c;
     }
 
+    /*
+    public int numberOfArithmeticSlices(int[] A) {
+        int result = 0, temp = 0;
+        for (int i = 2; i < A.length; i++) {
+            if (A[i - 1] * 2 == A[i] + A[i - 2]) {
+                temp++;
+                result += temp;
+            } else {
+                temp = 0;
+            }
+        }
+        return result;
+    }
+     */
     public static void main(String[] args) {
         System.out.println(new ArithmeticSlices().numberOfArithmeticSlices(new int[]{1, 2, 3, 8, 9, 10}));
     }
