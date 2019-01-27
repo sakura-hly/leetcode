@@ -14,8 +14,10 @@ public class TargetSum {
         for (int i = 0; i < nums.length; i++) {
             int[] next = new int[2 * totalSum + 1];
             for (int j = 0; j < 2 * totalSum + 1; j++) {
-                if (j - nums[i] > 0) next[j - nums[i]] += dp[j];
-                if (j + nums[i] < 2 * totalSum) next[j + nums[i]] += dp[j];
+                if (dp[j] != 0) { //if current sum j - totalSum is already reached by the previous searched numbers
+                    next[j - nums[i]] += dp[j];
+                    next[j + nums[i]] += dp[j];
+                }
             }
 
             dp = next;
@@ -24,6 +26,6 @@ public class TargetSum {
     }
 
     public static void main(String[] args) {
-        System.out.println(new TargetSum().findTargetSumWays(new int[]{1, 1, 1, 1, 1}, 3));
+        System.out.println(new TargetSum().findTargetSumWays(new int[]{1}, 1));
     }
 }
