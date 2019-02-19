@@ -1,4 +1,4 @@
-package com.sakura.leetcode.top10like;
+package com.sakura.leetcode.top100like;
 
 import java.util.Arrays;
 
