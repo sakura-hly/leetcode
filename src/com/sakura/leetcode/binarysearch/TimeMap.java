@@ -42,8 +42,7 @@ public class TimeMap {
                 left = mid + 1;
             }
         }
-        if (left == 0 && list.get(left).timestamp <= timestamp) return  list.get(left).value;
-        return left == 0 ? null : list.get(left - 1).value;
+        return left == 0 ? "" : list.get(left - 1).value;
     }
 
 }
