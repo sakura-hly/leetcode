@@ -2,6 +2,9 @@ package com.sakura.leetcode.math;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/
+ */
 public class MinimumMovesToEqualArrayElementsII {
 
     public int minMoves2(int[] nums) {
