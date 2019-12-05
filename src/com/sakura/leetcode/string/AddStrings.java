@@ -3,28 +3,15 @@ package com.sakura.leetcode.string;
 public class AddStrings {
 
     public String addStrings(String num1, String num2) {
-        char[] chs1 = new StringBuilder(num1).reverse().toString().toCharArray();
-        char[] chs2 = new StringBuilder(num2).reverse().toString().toCharArray();
-        char[] chs = new char[Math.max(chs1.length, chs2.length) + 1];
+        StringBuilder sb = new StringBuilder();
         int carry = 0;
-        for (int i = 0; i < chs.length - 1; i++) {
-            if (i >= chs1.length) {
-                chs[i] = (char) ((chs2[i] - '0' + carry) % 10 + '0');
-                carry = (chs2[i] - '0' + carry) / 10;
-            } else if (i >= chs2.length) {
-                chs[i] = (char) ((chs1[i] - '0' + carry) % 10 + '0');
-                carry = (chs1[i] - '0' + carry) / 10;
-            } else {
-                int temp = chs1[i] - '0' + chs2[i] - '0';
-                chs[i] = (char) ((temp + carry) % 10 + '0');
-                carry = (temp + carry) / 10;
-            }
+        for (int i = num1.length() - 1, j = num2.length() - 1; i >= 0 || j >= 0 || carry > 0; i--, j--) {
+            int a = i >= 0 ? num1.charAt(i) - '0' : 0;
+            int b = j >= 0 ? num2.charAt(j) - '0' : 0;
+            sb.append((a + b + carry) % 10);
+            carry = (a + b + carry) / 10;
         }
-
-        chs[chs.length - 1] = carry == 0 ? '0' : '1';
-        return carry == 0
-                ? new StringBuilder(String.valueOf(chs)).reverse().substring(1)
-                : new StringBuilder(String.valueOf(chs)).reverse().toString();
+        return sb.reverse().toString();
     }
 
     public static void main(String[] args) {
