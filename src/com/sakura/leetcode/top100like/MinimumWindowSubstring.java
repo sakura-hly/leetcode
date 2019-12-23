@@ -6,45 +6,21 @@ import java.util.Map;
 public class MinimumWindowSubstring {
 
     public String minWindow(String s, String t) {
-        if (t.length() > s.length()) return "";
-        String result = s + " ";
-
-        //create a hashmap to save the Characters of the target substring.
-        //(K, V) = (Character, Frequence of the Characters)
-        Map<Character, Integer> map = new HashMap<>();
-        for (char c : t.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
-        }
-        //maintain a counter to check whether match the target string.
-        int counter = map.size();//must be the map size, NOT the string size because the char may be duplicate.
-
-        int begin = 0, end = 0;
+        int[] help = new int[123 - 65  + 1];
+        for (char c : t.toCharArray()) help[c - 'A']++;
+        int count = t.length(), start = 0, end = 0;
+        int begin = 0, len = Integer.MAX_VALUE;
         while (end < s.length()) {
-            char c = s.charAt(end);
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) - 1);
-                if (map.get(c) == 0) counter--;
-            }
-            end++;
-
-            while (counter == 0) {
-                char temp = s.charAt(begin);
-                if (map.containsKey(temp)) {
-                    map.put(temp, map.get(temp) + 1);
-                    if (map.get(temp) > 0)
-                        counter++;//modify the counter according the requirement(different condition).
+            if (help[s.charAt(end++) - 'A']-- > 0) count--;
+            while (count == 0) {
+                if (end - start < len) {
+                    begin = start;
+                    len = end - start;
                 }
-
-                /* save / update(min/max) the result if find a target*/
-                // result collections or result int value
-                if (end - begin < result.length()) {
-                    result = s.substring(begin, end);
-                }
-
-                begin++;
+                if (help[s.charAt(start++) - 'A']++ >= 0) count++;
             }
         }
-        return result.length() == s.length() + 1 ? "" : result;
+        return len == Integer.MAX_VALUE ? "" : s.substring(begin, begin + len);
     }
 
     public static void main(String[] args) {
