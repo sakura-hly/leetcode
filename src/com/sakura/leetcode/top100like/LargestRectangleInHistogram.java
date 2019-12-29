@@ -1,9 +1,12 @@
 package com.sakura.leetcode.top100like;
 
+import java.util.Stack;
+
 public class LargestRectangleInHistogram {
 
     public int largestRectangleArea(int[] heights) {
-        if (heights == null || heights.length == 0) return 0;
+        if (heights == null || heights.length == 0)
+            return 0;
         int n = heights.length;
         int[] left = new int[n], right = new int[n];
         int result = 0;
@@ -33,7 +36,25 @@ public class LargestRectangleInHistogram {
         return result;
     }
 
+    public int largestRectangleArea2(int[] heights) {
+        // https://www.geeksforgeeks.org/largest-rectangle-under-histogram/
+        Stack<Integer> stack = new Stack<>();
+        int max = 0;
+        for (int i = 0; i < heights.length; i++) {
+            while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
+                max = Math.max(max, heights[stack.pop()] * (stack.isEmpty() ? i : i - stack.peek() - 1));
+            }
+            stack.push(i);
+        }
+
+        while (!stack.isEmpty()) {
+            max = Math.max(max,
+                    heights[stack.pop()] * (stack.isEmpty() ? heights.length : heights.length - stack.peek() - 1));
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
-        System.out.println(new LargestRectangleInHistogram().largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3}));
+        System.out.println(new LargestRectangleInHistogram().largestRectangleArea2(new int[] { 2, 1, 5, 6, 2, 3 }));
     }
 }
