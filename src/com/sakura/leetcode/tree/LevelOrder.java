@@ -6,16 +6,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
-
 public class LevelOrder {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> list = new LinkedList<>();
